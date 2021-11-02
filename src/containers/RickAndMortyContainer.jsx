@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { fetchCharacters } from '../../services/RickAndMortyApi';
+import CharacterList from '../components/app/characters/CharacterList';
 
 class RickAndMortyContainer extends Component {
   state = {
@@ -15,12 +17,12 @@ class RickAndMortyContainer extends Component {
   }
 
   render() {
-    const { loading } = this.state;
+    const { loading, characters } = this.state;
 
     if (loading) {
       return <h1>Loading...</h1>;
     }
-    return <h1>Characters Retrieved!</h1>;
+    return <CharacterList characters={characters} />;
   }
 }
 
